@@ -1,0 +1,29 @@
+name: CI - Techflow Task Manager
+
+on:
+  push:
+    branches: [ main, developer ]
+  pull_request:
+    branches: [ main, developer ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Instalar .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore
+        run: dotnet restore techflow-task-manager.sln
+
+      - name: Build
+        run: dotnet build techflow-task-manager.sln --configuration Release --no-restore
+
+      - name: Testes
+        run: dotnet build techflow-task-manager.sln --configuration Release --no-restore
