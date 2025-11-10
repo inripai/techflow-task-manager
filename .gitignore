@@ -1,0 +1,12 @@
+# Visual Studio
+.vs/
+
+# Build .NET
+bin/
+obj/
+
+# Usuário e configs locais
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
