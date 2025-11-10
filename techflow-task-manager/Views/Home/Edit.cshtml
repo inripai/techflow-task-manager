@@ -1,0 +1,16 @@
+@model techflow_task_manager.Models.TaskItem
+@{
+    ViewData["Title"] = "Editar Tarefa";
+}
+
+<h2 class="mb-4">Editar tarefa</h2>
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <partial name="_TaskForm" />
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
